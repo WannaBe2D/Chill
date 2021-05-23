@@ -5,22 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <form id="formMDA" method="POST">
-        <input id="form-url" type="url">
-        <input id="but1" type="button" value="Send">
-    </form>
+    <header>
+        <button class="btn-nav">about</button><br>
+        <button class="btn-nav">dark mode</button>
+    </header>
 
-    <div id="spoti">
-        <iframe id="spoti-play" src="https://open.spotify.com/embed/playlist/5uMm42gvc6tnBCV4FMI6PZ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-    </div>
-
-    <div id="rooms"></div>
-    <button id="but">Next</button>
-    
-    <div id="sound-wrapper"></div>
+    <section id="content">
+        <div class="navSpotify">
+            <div class="name">
+                <h1 class="logo">I Miss<br>My Cafe</h1>
+                <p class="logo-des">Take a seat and stay awhile.</p>
+            </div>
+            <div id="spoti">
+                <form id="formMDA" method="POST">
+                    <input id="form-url" class="formSpoti" type="url" placeholder="link plylist">
+                    <input id="but1" class="btn-nav" type="button" value="Send">
+                </form>
+                <iframe id="spoti-play" src="https://open.spotify.com/embed/playlist/5uMm42gvc6tnBCV4FMI6PZ" width="250" height="330" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </div>
+        
+        <img id="backImg" src="cafesketch.png">
+        
+        <div class="SoundMenu">
+            <div id="rooms"></div>
+            <button class="btn-nav" id="but">Next</button>
+        
+            <div id="sound-wrapper"></div>
+        </div>
+    </section>
 
 
     <script src="index.js"></script>

@@ -16,11 +16,11 @@ function buildSound(i) {
         
         for(let n=0;n<list.length;n++){
             if(list[n].id == i){
-                let item = ` <button id="pl-${list[n].id}" onclick="controlPlay(${list[n].id})">Play</button>
-                <figure>
-                    <figcaption>${list[n].name}</figcaption>
+                let item = `
+                <figure style="padding-bottom: 30px; border-bottom: 1px solid black;width:280px;font-size: 14px;">
+                    <figcaption>${list[n].name}  <button class="btn-nav" id="pl-${list[n].id}" onclick="controlPlay(${list[n].id})"><img id="im-${list[n].id}" src="free-icon-play-button-153752.png"></button></figcaption>
                     <audio id="audio-${list[n].id}"
-                        controls
+                       
                         src="${list[n].music}">
                             Your browser does not support the
                             <code>audio</code> element.
@@ -49,7 +49,7 @@ fetch(url)
 
     let numRoom = 0
 
-    wrapperRooms.innerHTML += `<div>${roomsJson[numRoom].name}<br>${roomsJson[numRoom].sound}</div>`
+    wrapperRooms.innerHTML += `<div>${roomsJson[numRoom].name}</div>`
     for(let i in roomsJson[numRoom].sound){
         buildSound((roomsJson[numRoom].sound)[i])
     }
@@ -63,7 +63,7 @@ fetch(url)
         }
         wrapperRooms.innerHTML = ''
         console.log(numRoom)
-        wrapperRooms.innerHTML += `<div>${roomsJson[numRoom].name}<br>${roomsJson[numRoom].sound}</div>`
+        wrapperRooms.innerHTML += `<div>${roomsJson[numRoom].name}</div>`
         
 
         let roomsJsonSound = roomsJson[numRoom].sound
@@ -95,9 +95,12 @@ mySpoti.onclick = () => {
 
 function controlPlay(a){
     let myAudio = document.getElementById("audio-" + String(a))
+    let mybutAudio = document.getElementById("im-" + String(a))
     if (myAudio.paused){
         myAudio.play()
+        mybutAudio.setAttribute('src', 'pause.png')
     }else{
         myAudio.pause()
+        mybutAudio.setAttribute('src', 'free-icon-play-button-153752.png')
     }    
 }

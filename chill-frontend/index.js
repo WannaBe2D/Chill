@@ -71,6 +71,7 @@ fetch(url)
         let roomsJsonSound = roomsJson[numRoom].sound
         for(let g in roomsJsonSound){
             buildSound(roomsJsonSound[g])
+            setImage(roomsJson[numRoom].image)
         }
     }
 })
@@ -117,4 +118,14 @@ function setVolume(a) {
 
     audio.volume = volume.value / 100
 
+}
+
+
+// Image room
+
+
+let imageRoom = document.getElementById("backImg");
+
+function setImage(id) {
+    imageRoom.setAttribute("src", id)
 }
